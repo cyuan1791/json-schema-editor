@@ -12,7 +12,8 @@
     <div  class="mt-1 text-xs-center ctext">
       <form action="#" method="POST">
         <stripe-checkout :disabled="orderOnLimit"
-          :stripe-key="stripekey"
+                         :stripe-key="stripekey"
+                         :options="options"
           :product="product">
         </stripe-checkout>
         <input type="hidden" name="amount" :value="product.amount" />
@@ -44,9 +45,16 @@ export default {
     }),
     product () {
       return {
-        name: 'Yuan',
-        description: 'Hello',
+        name: 'Welcome',
+        description: '',
+        // 'shipping-address': true,
         amount: this.$store.getters.total * 100
+      }
+    },
+    options () {
+      return {
+        'shippingAddress': true,
+        'billingAddress': true
       }
     },
     stripekey () {
