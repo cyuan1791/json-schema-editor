@@ -3,7 +3,7 @@
     <img class="card-img-top img-responsive" :src="product.imgUrl" :alt="product.title">
     <div class="card-block">
       <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.price | formatMoney}} - Stock: {{product.inventory}}</p>
+      <p class="card-text">{{product.price | formatMoney}}</p>
       <add-to-cart :product="product"></add-to-cart>
     </div>
   </div>
