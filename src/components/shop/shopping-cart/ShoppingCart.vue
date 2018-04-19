@@ -10,7 +10,7 @@
     <shopping-cart-summary></shopping-cart-summary>
 
     <div  class="mt-1 text-xs-center ctext">
-      <form action="#" method="POST">
+      <form action="charge.php" method="POST">
         <stripe-checkout :disabled="orderOnLimit"
                          :stripe-key="stripekey"
                          :options="options"

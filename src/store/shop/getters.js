@@ -20,7 +20,7 @@ export const itemsQuantity = state => {
 
 export const subtotal = state => {
   const sum = cartProducts(state).reduce((subtotal, item) => {
-    return subtotal + item.price * item.quantity
+    return subtotal + (item.amount / 100) * item.quantity
   }, 0)
 
   return state.shoppingCart.productDiscount ? sum * 0.7 : sum

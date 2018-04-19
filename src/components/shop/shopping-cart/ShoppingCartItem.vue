@@ -5,7 +5,7 @@
     </div>
     <div class="media-body">
       <strong class="d-block">{{item.title}}</strong>
-      <span>Quantity: {{item.quantity}} - {{item.price | formatMoney}}</span>
+      <span>Quantity: {{item.quantity}} - {{item.amount/100 | formatMoney}}</span>
     </div>
     <div class="media-right align-middle">
       <remove-from-cart :product="item"></remove-from-cart>
