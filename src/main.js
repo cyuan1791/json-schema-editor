@@ -4,8 +4,10 @@ import pluralize from 'pluralize'
 import Shop from './components/shop/Shop'
 import store from './store'
 import VueResource from 'vue-resource'
+import VModal from 'vue-js-modal'
 
 Vue.use(VueResource)
+Vue.use(VModal, { dynamic: true })
 
 Vue.filter('formatMoney', accounting.formatMoney)
 Vue.filter('pluralize', pluralize)
