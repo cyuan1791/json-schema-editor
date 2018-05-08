@@ -22,14 +22,13 @@ export const subtotal = state => {
   const sum = cartProducts(state).reduce((subtotal, item) => {
     return subtotal + (item.amount / 100) * item.quantity
   }, 0)
-
   return state.shoppingCart.productDiscount ? sum * 0.7 : sum
 }
 
-export const taxes = state => subtotal(state) * 0.005
+export const taxes = state => subtotal(state) * window.tax
 
 export const shipping = state => {
-  const shippings = cartProducts(state).map(item => item.shipping)
+  const shippings = cartProducts(state).map(item => item.shipping / 100)
 
   if (state.shoppingCart.freeShipping || !shippings.length) {
     return 0
