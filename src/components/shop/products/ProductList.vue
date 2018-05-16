@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <transition-group name="list" tag="div">
 
-    <div class="row" v-for="row in productRows">
+  <div class="row" v-for="(row, id) in productRows" :key="id">
       <div class="col-xs-12 col-sm-4" v-for="product in row">
         <product
           :product="product"
@@ -9,7 +9,7 @@
         </product>
       </div>
     </div>
-  </div>
+  </transition-group>
 </template>
 
 <script>
@@ -30,3 +30,17 @@ export default {
   }
 }
 </script>
+
+<style>
+  .list-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .list-enter-active, .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+</style>
