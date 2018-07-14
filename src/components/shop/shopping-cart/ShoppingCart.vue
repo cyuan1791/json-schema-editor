@@ -6,7 +6,6 @@
       :item="item"
       :key="item.id">
     </shopping-cart-item>
-
     <shopping-cart-summary></shopping-cart-summary>
 
     <div  class="mt-1 text-xs-center ctext">
@@ -17,6 +16,7 @@
           :product="product">
         </stripe-checkout>
         <input type="hidden" name="amount" :value="product.amount" />
+        <input type="hidden" name="itemsJson" :value="itemsJson()" />
       </form>
       {{ stripeKey }}
       <!--<button class="btn btn-success"-->
@@ -68,6 +68,20 @@ export default {
     ShoppingCartItem,
     ShoppingCartSummary,
     'stripe-checkout': StripeCheckout
+  },
+  methods: {
+    itemsJson () {
+      var i
+      var itemArray = []
+      for (i = 0; i < this.items.length; i++) {
+        itemArray.push({
+          type: 'sku',
+          parent: this.items[i]['skuId'],
+          quantity: this.items[i]['quantity']
+        })
+      }
+      return JSON.stringify(itemArray)
+    }
   }
 //  methods: {
 //    buy () {

@@ -5,13 +5,13 @@
       <em v-if="productDiscount"><b> (30% OFF applied)</b></em>
     </li>
 
-    <li class="list-group-item">
+    <!--<li class="list-group-item">
       Shipping:
       <span v-if="!freeShipping"> {{shipping | formatMoney}}</span>
       <em v-if="freeShipping"> Free Shipping</em>
     </li>
 
-    <li class="list-group-item">Taxes: {{taxes | formatMoney}}</li>
+    <li class="list-group-item">Taxes: {{taxes | formatMoney}}</li>-->
 
     <li class="list-group-item">
       <strong>Total:</strong>

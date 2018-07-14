@@ -23,7 +23,7 @@ new Vue({
       }).then(
       data => {
         this.$store.commit('INIT_PRODUCT', data.data)
-        // console.log(data.data)
+        console.log(data.data)
       })
   },
   render: h => h(Shop)
